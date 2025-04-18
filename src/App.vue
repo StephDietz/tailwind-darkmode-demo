@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+
 function toggleTheme() {
   const html = document.documentElement
   const isDark = html.classList.contains('dark')
@@ -11,12 +13,29 @@ function toggleTheme() {
     localStorage.theme = 'dark'
   }
 }
+
+const sidebarOpen = ref(false)
 </script>
 
 <template>
-  <div class="dark:text-white dark:bg-black bg-gray-100 min-h-screen flex dark:flex-row-reverse">
+  <div
+    class="dark:text-white dark:bg-black bg-gray-100 min-h-screen flex flex-col md:flex-row dark:md:flex-row-reverse"
+  >
+    <!-- Mobile Header with Hamburger -->
+    <div
+      class="md:hidden flex items-center justify-between p-4 border-b border-zinc-200 dark:border-zinc-800"
+    >
+      <div class="text-xl font-bold">Darkmode Dash</div>
+      <button @click="sidebarOpen = !sidebarOpen" aria-label="Toggle sidebar">
+        <span class="material-icons">menu</span>
+      </button>
+    </div>
+
     <!-- Sidebar -->
-    <aside class="w-64 p-6 h-screen">
+    <aside
+      class="w-full md:w-64 p-6 md:h-screen transition-all duration-300 sticky left-0 top-0 bg-gray-50 dark:bg-zinc-900"
+      :class="{ hidden: !sidebarOpen, block: sidebarOpen, 'md:block': true }"
+    >
       <div class="flex items-center justify-center mb-6">
         <div class="bg-gradient-to-br from-pink-500 to-purple-500 w-8 h-8 rounded-full mr-2"></div>
         <div class="text-xl font-bold">Darkmode Dash</div>
@@ -77,7 +96,9 @@ function toggleTheme() {
       </div>
 
       <!-- Stat Cards -->
-      <div class="grid grid-cols-4 dark:grid-cols-2 gap-4 dark:font-mono">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 dark:grid-cols-2 gap-4 dark:font-mono"
+      >
         <div class="dashboard-card">
           <div class="text-sm text-zinc-500">Today's Money</div>
           <div class="text-2xl font-bold text-green-500">
@@ -103,8 +124,8 @@ function toggleTheme() {
       </div>
 
       <!-- Cards Row -->
-      <div class="grid grid-cols-3 gap-4">
-        <div class="dashboard-card col-span-2">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="dashboard-card md:col-span-2">
           <span class="text-gray-500 uppercase text-xs font-semibold">Built as a demo</span>
           <div class="font-bold text-lg mb-2">Darkmode Dash</div>
           <p class="text-sm text-zinc-500 mb-2">
@@ -124,7 +145,7 @@ function toggleTheme() {
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="dashboard-card">
           <div class="font-bold">
             <code class="text-pink-500 p-2 rounded-md bg-gray-200 dark:bg-zinc-800"
