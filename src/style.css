@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .secondary-bg {
+    @apply bg-white dark:bg-zinc-900;
+  }
+  .dashboard-card {
+    @apply bg-white dark:bg-zinc-900 text-zinc-800 dark:text-white rounded-xl p-4 shadow;
+  }
+  .nav-item {
+    @apply rounded-lg p-3 flex items-center gap-x-2 relative;
+  }
+  .nav-item-active {
+    @apply bg-white dark:bg-zinc-900 shadow-md;
+  }
+  .nav-item-hover {
+    @apply hover:bg-white dark:hover:bg-zinc-900 hover:shadow-md;
+  }
+  .nav-item-icon {
+    @apply text-gray-500;
+  }
+  .nav-item-icon-active {
+    @apply text-pink-500;
+  }
+  .input {
+    @apply bg-white dark:bg-zinc-900 text-zinc-800 dark:text-white rounded-lg p-2 shadow w-full;
+  }
+}
