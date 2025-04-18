@@ -1,6 +1,6 @@
 # 🌙 Tailwind Dark Mode Toggle Example
 
-This project demonstrates how to implement a dark mode toggle using Tailwind CSS with custom utility classes and a simple JavaScript toggle function.
+This project demonstrates how to implement a dark mode toggle using Tailwind CSS with custom utility classes and a simple JavaScript toggle function. Notice that with the toggle, themes change, as well as layouts and fonts.
 
 ## 🧩 Enable Dark Variant in CSS
 
@@ -68,5 +68,4 @@ Use them in your Vue components like this:
 
 To run this locally, `npm install` and `npm run dev`.
 
-This demo is also deployed on Vercel and can be found here:
-# tailwind-darkmode-demo
+This demo is also deployed on Vercel and can be found here: https://tailwind-darkmode-demo-six.vercel.app/
